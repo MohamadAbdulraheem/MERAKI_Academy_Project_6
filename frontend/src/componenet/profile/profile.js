@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 toast.configure();
 const Profile = () => {
   const [userProfile, setuserProfile] = useState([]);
-  
+
   const [profileVideos, setprofileVideos] = useState([]);
   const [isDeleted, setisDeleted] = useState(false);
   const navigate = useNavigate();
@@ -109,7 +109,7 @@ const Profile = () => {
             <div>About</div>
           </div>
         </div>
-       
+
         <div className="profile-upload-videos">
           <div className="profile-upload-image">
             <img src="https://www.gstatic.com/youtube/img/channels/empty_channel_illustration.svg" />
