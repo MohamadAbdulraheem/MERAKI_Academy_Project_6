@@ -7,7 +7,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import moment from "moment";
 const menuIcon = document.querySelector(".logo");
-const Home = ({ setChanelId }) => {
+const Home = ({ setChanelId,setIsCategory,isCategory }) => {
   //Navigate initialization
   const navigate = useNavigate();
   const [videos, setVideos] = useState([]);
@@ -21,7 +21,7 @@ const Home = ({ setChanelId }) => {
       token: state.loginReducer.token,
     };
   });
-
+console.log(typeof setIsCategory );
   const getVideoBySubscriptios = () => {
     axios
       .get(`/subscription/videos`, {
@@ -57,7 +57,7 @@ const Home = ({ setChanelId }) => {
 
   return (
     <div className="videos">
-      <Categories />
+      <Categories isCategory={isCategory} setIsCategory={setIsCategory} />
      {videos&&videos.length? <h1>Recommended</h1>:null}
 
       {videos&&videos.length?<div className="videos__container border-botom">

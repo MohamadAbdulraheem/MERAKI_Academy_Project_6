@@ -29,6 +29,7 @@ function App() {
   const menu = document.querySelector("#menu");
 
   const sidebar = document.querySelector(".sidebar");
+  const [isCategory, setIsCategory] = useState(false)
 
   const showSide = function () {
     sidebar.classList.toggle("show-sidebar");
@@ -38,6 +39,7 @@ function App() {
   const [rightSearch, setRightSearch] = useState(true)
   const [search, setSearch] = useState("");
   const [chanelId, setChanelId] = useState(0);
+  console.log(isCategory);
   return (
     <div className="App">
       <Header
@@ -54,7 +56,7 @@ function App() {
             <div className="mainBody">
               <Sidebar sideClick={sideClick} />
 
-              <Home setChanelId={setChanelId} />
+              <Home setChanelId={setChanelId} setIsCategory={setIsCategory} isCategory={isCategory}  />
             </div>
           }
         />
@@ -196,7 +198,7 @@ function App() {
               <div className="mainBody">
                 <Sidebar sideClick={sideClick} />
 
-                <AllCategories />
+                <AllCategories isCategory={isCategory} />
               </div>
             ) : (
               <div class="admin">

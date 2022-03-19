@@ -10,7 +10,7 @@ import { login, logout } from "../reducer/login/index";
 import Categories from "../Categories/Categories";
 import moment from "moment";
 
-const AllCategories = () => {
+const AllCategories = ({isCategory,setIsCategory}) => {
   const navigate = useNavigate();
   const [allVideos, setallVideos] = useState([]);
   let { category } = useParams();
@@ -28,11 +28,11 @@ const AllCategories = () => {
 
   useEffect(() => {
     getAllVideosByCategories();
-  }, []);
+  }, [isCategory]);
 
   return (
     <div className="videos">
-       <Categories />
+       <Categories setIsCategory={setIsCategory} />
       <h1>Results filter for {category} </h1>
       <div className="videos__container">
         {allVideos &&
